@@ -3,7 +3,7 @@ dotenv.config({ path: "../src/config/config.env" });
 const { DataTypes } = require('sequelize');
 const sequelize = require('../src/config/sequelize');
 const {User} = require('../src/model/user');
-const {Category, CallCenterCategoryId} = require('../src/model/category');
+const {Category, CallCenterCategoryId, CategoryRelation, Categorykind } = require('../src/model/category');
 const {ContactNumber, EmergencyNumber} = require('../src/model/contact');
 const {RegistrationCare, RegistrationCallCenter} = require('../src/model/registration');
 const {Role, UserRole} = require('../src/model/role');
@@ -18,6 +18,8 @@ const resetFunction = async () => {
         await sequelize.sync({force:true});
         await Branch.sync({force: true});
         await User.sync({force: true});
+        await CategoryRelation.sync({force: true});
+        await Categorykind.sync({force: true});
         await Category.sync({force: true});
         await ContactNumber.sync({force: true});
         await EmergencyNumber.sync({force: true});

@@ -30,9 +30,9 @@ exports.Category = sequelize.define("category", {
 
 
 exports.CallCenterCategoryId = sequelize.define("Registration_category_id", {
-    Registration_id:DataTypes.INTEGER,
-    Type: DataTypes.SMALLINT,
-    Category_id: {
+    registration_id:DataTypes.INTEGER,
+    type: DataTypes.SMALLINT,
+    category_id: {
         type:  DataTypes.INTEGER,
         references: {
             model: 'Category', 
@@ -40,8 +40,26 @@ exports.CallCenterCategoryId = sequelize.define("Registration_category_id", {
         },
         allowNull: false
     },
-    Create_time: DataTypes.DATE
+    create_time: DataTypes.DATE
 }, {
     tableName: 'Registration_category_id', 
     timestamps: false
 });
+
+exports.CategoryRelation = sequelize.define("Category_relation", {
+    category_one:DataTypes.STRING,
+    category_two:DataTypes.STRING,
+    relate_type:DataTypes.STRING,
+}, {
+    tableName: 'Registration_category_id', 
+    timestamps: false
+});
+
+exports.Categorykind = sequelize.define("Category_kind", {
+    name:DataTypes.STRING,
+    description:DataTypes.STRING,
+}, {
+    tableName: 'Registration_category_id', 
+    timestamps: false
+});
+
