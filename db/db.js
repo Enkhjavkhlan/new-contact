@@ -14,7 +14,7 @@ const {Branch} = require('../src/model/branch');
 const resetFunction = async () => {
     try{
         await sequelize.authenticate();
-        console.log('Connection has been established successfully.');
+        console.log('Connection  successfully.');
         await sequelize.sync({force:true});
         await Branch.sync({force: true});
         await User.sync({force: true});
