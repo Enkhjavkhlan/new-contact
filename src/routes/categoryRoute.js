@@ -1,11 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const {Category} = require("../model/category");
+const {getCategory} = require("../controller/CategoryController");
 
-
-router.get("/test",async function  (req, res) {
-    const data = await Category.findAll();
-    res.json(data);
-});
+router.get("/test",  getCategory);
 
 module.exports = router;

@@ -9,13 +9,13 @@ const app = express();
 
 app.options("*", cors());
 app.use(cors(corsOptions));
+app.use(express.json());
 app.use((req, res, next) => logUrl(req, res, next));
 
 app.use("/api", mainRoute);
 app.get("/test", function (req, res) {
     res.send("test");
 });
-
 
 app.use(errorHandler);
 const server = app.listen(

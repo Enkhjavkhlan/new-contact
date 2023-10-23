@@ -51,7 +51,7 @@ exports.CategoryRelation = sequelize.define("Category_relation", {
     category_two:DataTypes.STRING,
     relate_type:DataTypes.STRING,
 }, {
-    tableName: 'Registration_category_id', 
+    tableName: 'Category_relation', 
     timestamps: false
 });
 
@@ -59,7 +59,7 @@ exports.Categorykind = sequelize.define("Category_kind", {
     name:DataTypes.STRING,
     description:DataTypes.STRING,
 }, {
-    tableName: 'Registration_category_id', 
+    tableName: 'Category_kind', 
     timestamps: false
 });
 

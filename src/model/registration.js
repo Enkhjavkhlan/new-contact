@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/sequelize');
 
 
-exports.RegistrationCare = sequelize.define("Call_History", {
+exports.CallHistory = sequelize.define("Call_History", {
     number_host: DataTypes.STRING,
     number_client: DataTypes.STRING,
     call_kind: DataTypes.STRING,
