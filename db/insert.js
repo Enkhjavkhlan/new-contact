@@ -15,20 +15,27 @@ const resetFunction = async () => {
     try{
         await sequelize.authenticate();
         console.log('Connection  successfully.');
-        await Branch.sync({force: true});
-        await User.sync({force: true});
-        await CategoryRelation.sync({force: true});
-        await Categorykind.sync({force: true});
-        await Category.sync({force: true});
-        await ContactNumber.sync({force: true});
-        await EmergencyNumber.sync({force: true})
-        await CallHistory.sync({force: true});
-        await CallCenterCategoryId.sync({force: true});
-        await Role.sync({force: true});
-        await UserRole.sync({force: true});
-        await Permission.sync({force: true});
-        await RolePermission.sync({force: true});
-        await NewIdea.sync({force: true});
+        for(let i=1; i<11; i++){
+            Category.create({
+                id: i,
+                name: `Cat ${i}`,
+                description: `Desc ${i}`,
+                parent_id: 1,
+                auth_user_created: null,
+                isDeleted: false,
+                Create_date: '2023-07-07 12:12:12:123'
+            })
+            for(let j=1; j<=10; j++)
+                Category.create({
+                    id: i * 10 +j,
+                    name: `Cat ${i}.${j}`,
+                    description: `Desc ${i}.${j}`,
+                    parent_id: i,
+                    auth_user_created: null,
+                    isDeleted: false,
+                    Create_date: '2023-07-07 12:12:12:123'
+                })
+        }
     }catch(e){
         console.log('Connection error', e.message);
     }

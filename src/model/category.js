@@ -3,6 +3,11 @@ const sequelize = require('../config/sequelize');
 
 
 exports.Category = sequelize.define("category", {
+    // id: {
+    //     type: DataTypes.INTEGER,
+    //     autoIncrement: true,
+    //     allowNull: false
+    // },
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     parent_id: {
